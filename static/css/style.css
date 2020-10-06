@@ -1,0 +1,51 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.bg{
+  background-color: #0f222d;
+}
+.indexBg{
+  background-color: #dde8fa;
+background-image: url("https://www.transparenttextures.com/patterns/cross-scratches.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+a{
+  color: #b71c1c;
+}
+.tabs .tab a {
+  color: #b71c1c;
+  /*Custom Text Color*/
+}
+
+.tabs .tab a:hover {
+  color:#b71c1c;
+  /*Custom Color On Hover*/
+}
+
+.tabs .tab a:focus.active {
+  color:#b71c1c;
+  /*Custom Text Color While Active*/
+  background-color: #ffebee;
+  /*Custom Background Color While Active*/
+}
+
+.tabs .indicator {
+  background-color:#b71c1c;
+  /*Custom Color Of Indicator*/
+}
+
+.cardindex{
+  background-color: rgba(250, 250, 250,0.95);
+}
+
+#toast-container .toast {
+  cursor: pointer;
+}

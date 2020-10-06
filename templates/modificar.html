@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top: 5vh;">
+        <div class="col ">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-title center">
+                        Modificar una receta
+                    </div>
+                    <form method="POST" action="/modificar/{{receta['_id']}}" enctype=multipart/form-data>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="usuario" id="usuario" type="hidden" value="{{receta['usuario']}}" class="validate" required>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Titulo de la receta" value="{{receta['title']}}" name="title" id="title" type="text" class="validate" required>
+                                <label for="title">Título</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Tiempo en minutos" value="{{receta['tiempo']}}" name="tiempo" id="tiempo" type="text" class="validate" required>
+                                <label for="tiempo">Tiempo de preparación</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Descripción" value="{{receta['description']}}" name="description" id="description" type="text" class="validate" required>
+                                <label for="description">Descripción de la receta</label>
+                            </div>
+                            <div class="col s12">
+                                <label for="ingredientes">Añade los ingredientes</label>
+                                <div class="chips chips-placeholder col s12" value="{{receta['ingredientes']}}" placeholder="Ingredientes" name="ingredientes" id="ingredientes" class="validate" required></div>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Preparacion" value="{{receta['preparacion']}}" name="preparacion" id="preparacion" type="text" class="validate" required>
+                                <label for="preparacion">Preparación de la receta</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="link"  value="{{receta['link']}}" name="link" id="link" type="text" class="validate" required>
+                                <label for="link">Sube el link de tu vídeo</label>
+                            </div>
+                            <div class="input-field file-field col s12">
+                                <div class = "btn red darken-4 waves-effect" id="btnImgs">
+                                    <span class="material-icons" style="margin-top: 1.2vh;">
+                                        add_photo_alternate
+                                    </span>
+                                    <input type = "file" value="{{receta['imgs']}}" name="images" multiple required />
+                                </div>
+                                <div class = "file-path-wrapper">
+                                    <input class = "file-path validate" id="imgs" type = "text"
+                                    placeholder = "Agregar Imágenes de la receta" />
+                                </div>
+                            </div>
+                            <div class="input-field col s5 offset-s4">
+                                <input type="submit" class="btn red darken-4 center" value="Modificar receta">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

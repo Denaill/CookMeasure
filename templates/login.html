@@ -1,0 +1,86 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<body class="bg">
+    <div class="container">
+        <div class="row" style="margin-top:7vh; margin-bottom: 10vh;">
+            <!-- <div class="col s6" style="padding: 0;padding-left: 7px;padding-top: 7px;">
+                <img class="responsive-img" style="" src="{{ url_for('static',filename='img/apia0.jpg') }}" alt="">
+            </div> -->
+            <div class="card cardindex col s10 m6 offset-m3 offset-s1" style="padding: 0;">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a class="active" href="#test1">Iniciar Sesión</a></li>
+                            <li class="tab col s6"><a class="" href="#test2">Registrarse</a></li>
+                        </ul>
+                    </div>
+                    <!-- FORM INICIAR SESION -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                    
+                        <div id="cerrar" class="collection blue-text text-lighten-5 red accent-6 col s10 offset-s1" style="margin-top: 1vh;">
+                                <div class="col" style="margin-top: 5px;">
+                                    <small>{{message}}</small>
+                                </div>
+                                <div class="col right">
+                                    <span class="material-icons" style="margin-top: 5px; cursor: pointer;" onclick="$('#cerrar').addClass('hide')">
+                                        close
+                                    </span>
+                                </div>
+                        </div>
+
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <div id="test1" class="col s12 rounded " style="padding:20px ;">
+                        <form action="{{ url_for('login') }}" method="POST" style="margin-top: 1vh;">
+                            <div class="input-field col s12">
+                                <input placeholder="Email" id="first_name" type="email" name="email" class="validate" required>
+                                <label for="first_name">Correo Electrónico</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Contraseña" id="pass" type="password" name="pass" class="validate" required>
+                                <label for="pass">Contraseña</label>
+                            </div>
+                            <button class="btn waves-effect red darken-4 col s10 m6 offset-m3 offset-s1" style="margin-top: 2vh;" type="submit">Iniciar Sesión</button>
+                        </form>
+                    </div>
+                    <!-- FORM REGISTRO -->
+                    <div id="test2" class="col s12" style="padding: 20px;">
+                        <form action="{{ url_for('signup') }}" method="POST">
+                            <div class="input-field col s12">
+                                <input placeholder="Nombre" id="rname" type="text" name="rname" class="validate" required>
+                                <label for="name">Nombre Completo</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Nickname" id="nickname" type="text" name="nickname" class="validate" required>
+                                <label for="name">Nickname</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Email" id="rfirst_name" type="email" name="remail" class="validate" required>
+                                <label for="first_name">Correo Electrónico</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Contraseña" id="rpass" type="password" name="rpass" class="validate" required>
+                                <label for="pass">Contraseña</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input placeholder="Confirmar Contraseña" id="rpass2" type="password" name="rpass2" class="validate" required>
+                                <label for="pass2">Contraseña</label>
+                            </div>
+                            <div class="input-flied col s12">
+                                <label>
+                                    <input type="checkbox" class="validate" required>
+                                    <span>Acepto la política de privacidad</span>
+                                </label>
+                            </div>
+                            <button class="btn waves-effect red darken-4 col s10 m6 offset-m3 offset-s1 validate" style="margin-top: 4vh;" type="submit">Registrarse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

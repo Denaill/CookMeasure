@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        {% for receta in recetas %}
+        {% if  receta['usuario'] == session['nickname'] %}
+        <div class="col s12 m6 ">
+            <div class="card">
+                <div class="col s2">
+                    <!--<a href="#ModalEliminar" class="material-icons red-text modal-trigger" style="margin-top:1.2vh;cursor: pointer;">
+                        cancel
+                    </a>-->
+                    <a class="btn-floating pulse dropdown-trigger btn" href="#" data-target="dropmenu" style="margin-top: 2vh; background-color:darkred;"><i class="material-icons">menu</i></a>
+                    <!--DropMenu structure-->
+                    <ul id='dropmenu' class='dropdown-content'>
+                        <li><a href="/modificar/{{receta['_id']}}" class=" red-text text-darken-3"><i class="material-icons red-text text-darken-3">border_color</i>Modificar receta</a></li>
+                        <li><a href="#ModalEliminar" class="red-text text-darken-3 modal-trigger"><i class="material-icons red-text text-darken-3">cancel</i>Eliminar receta</a></li>
+                    </ul>
+                    <!-- Modal Structure -->
+                    <div id="ModalEliminar" class="modal">
+                        <div class="modal-content">
+                            <h4>¿Desea eliminar esta receta?</h4>
+                            <p>Esta seguro que desea eliminar la receta {{receta['titulo']}} ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/delete/{{ receta['_id'] }}" class="modal-close waves-effect waves-red btn-flat">Si</a>
+                            <a href="{{ url_for('misrecetas') }}" class="modal-close waves-effect waves-red btn-flat">No</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title center" style="font-weight: bold;">
+                        <!--{{receta['title']}}-->
+                        {{receta['title']}}
+                    </div>
+                    <br>
+                    <div class="row">
+                        <img src="/images/{{receta['images']['0']}}" class="col s10 m8 offset-s1 offset-m2 materialboxed">
+                    
+                    <br>
+                    <p class="col s12 center">
+                        <br>
+                        {{receta['description']}}
+                    </p>
+                    <a href="/recetas/{{receta['_id']}}" class="col s10 offset-s1 m6 offset-m3 center btn red darken-4 hoverable waves-effect" style="margin-top: 15px;">
+                        Ver más
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('admin') }}" class="col s10 offset-s1 m6 offset-m3 center btn red darken-4 hoverable waves-effect" style="margin-top: 15px;">
+        Añadir una receta nueva
+    </a>
+</div>
+{% endblock %}

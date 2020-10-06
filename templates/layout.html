@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>CookMeasure</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico')}}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <!--QR READER-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+</head>
+
+<body class="indexBg" style="background:#0f222d;">
+    <nav class="" style="background-color:#0f222d;" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="{{url_for('index')}}" class="brand-logo">
+        CookMeasure
+    </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
+                {% if session['email'] %}
+                <li><a href="{{ url_for('misrecetas') }}">Mis recetas</a></li>
+                {% endif %}
+                <!-- Dropdown Trigger -->
+                <a class="btn-floating pulse dropdown-trigger btn" href="#" data-target="dropmenu1" style=" background-color:darkred;"><i class="material-icons">supervisor_account</i></a>
+                <!-- Dropdown Structure -->
+                <ul id='dropmenu1' class='dropdown-content'>
+                    {% if session['email'] %}
+                    <li><a href="#!" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">assignment_ind</i>Proxima..</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">cancel</i>Cerrar sesión</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('logint') }}" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">accessibility</i>Iniciar sesión</a></li>
+                    {% endif %}
+                </ul>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                {% if session['email'] == 'administrador@cookmeasure.com' %}
+                <li><a href="{{ url_for('admin') }}">Administrar</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
+                {% if session['email'] %}
+                <li><a href="{{ url_for('misrecetas') }}">Mis recetas</a></li>
+                <li><a href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+                {% else %}
+                <li><a href="{{ url_for('logint') }}">Iniciar Sesión</a></li>
+                {% endif %}
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer class="page-footer" style="background-color:#0f222d;">
+        <img src="{{url_for('static',filename='img/fondo.png')}}" alt="Fondo" class="responsive-img">
+    </footer>
+
+
+    <!--  Scripts-->
+    <script type="text/javascript" src="{{url_for('static', filename='js/qrReader.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{url_for('static',filename='js/materialize.js')}}"></script>
+    <script src="{{url_for('static',filename='js/init.js')}}"></script>
+
+</body>
+
+</html>

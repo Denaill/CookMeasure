@@ -1,0 +1,122 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col white s12 indexJumbotron z-depth-2 hoverable">
+
+            <div class="row red-text text-darken-4 " style="border-radius: 5px;">
+                <h3 class="center" style="">
+                    Bienvenido a CookMeasure
+                </h3>
+                <div class="carousel col s10 offset-s1" style="height: 25vh;">
+                    <a class="carousel-item" href="#one!"><img src="{{url_for('static',filename='img/apia.jpg')}}" style="height: 17vh;"></a>
+                    <a class="carousel-item" href="#two!"><img src="{{url_for('static',filename='img/apia2.jpeg')}}" style="height: 17vh;"></a>
+                    <a class="carousel-item" href="#three!"><img src="{{url_for('static',filename='img/apia3.jpg')}}" style="height: 17vh;"></a>
+                    <a class="carousel-item" href="#four!"><img src="{{url_for('static',filename='img/apia4.jpg')}}" style="height: 17vh;"></a>
+                    <a class="carousel-item" href="#five!"><img src="{{url_for('static',filename='img/apia5.jpg')}}" style="height: 17vh;"></a>
+                </div>
+                <div class="center col s10 offset-s1" style="margin-top: -5vh;">
+                    <span class="black-text" style="font-size: 25px;">Apía el corazón del viento.</span>
+                    <br>
+                    <p class="col s12 m10 offset-m1 black-text" style="text-align: justify;">
+                        En Apía se puede vivir la cultura y tradición, vivir magníficas y variadas experiencias de turismo de naturaleza, rural y de pueblos; turismo de aventura, salud y bienestar. Un destino incomparable del Paisaje Cafetero.
+                    </p>
+                    <quote class="col s10 offset-s1" style="font-style: italic;">
+                        "Tierra de aves, música, café y aventuras."
+                        <br>
+                        <br>
+                    </quote>
+
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <a href="{{ url_for('mapaprincipal') }}">
+        <div class="btn btn-large red darken-4  waves-effect col s6 m4 offset-s3 offset-m4 hoverable">
+            <div class="valign-wrapper" style="">
+                <span class="col s2 material-icons">
+        explore
+      </span>
+                <div class="col s10 tooltipped " style="height: 55px;" data-position="bottom" data-tooltip="Explora el mapa de Apia">
+                    Explorar mapa
+                </div>
+
+            </div>
+        </div>
+    </a>
+</div>
+<div class="container">
+    <div class="section">
+
+        <div class="card z-depth-2 hoverable">
+            <br>
+            <br>
+            <p class="center col s12 m10 offset-m1 black-text">
+                <iframe width="420" height="250" src="https://www.youtube.com/embed/rC7QC7VvZsQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </p>
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center">
+                        <br> Qué hacer en Apia?
+                    </h5>
+                </div>
+                <div class="col s12 m6 l3">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><span class="material-icons green-text text-darken-3">
+            eco
+          </span></h2>
+                        <h5 class="center">Naturaleza</h5>
+
+                        <p class="light center">Apia, está rodeado de áreas naturales; topografía de montañas, valles y cañones; La ubicación ideal para el avistamiento de aves y otras actividades del mundo natural.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><span class="material-icons green-text text-darken-3">
+            directions_bike
+          </span></h2>
+                        <h5 class="center">Deportes</h5>
+
+                        <p class="light center">En medio de las verdes montañas Apia se abre paso como el lugar ideal para la práctica de deportes tales como ciclismo, senderismo, torrentismo, y es uno de los destinos favoritas para el parapente.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><span class="material-icons green-text text-darken-3">
+            music_note
+          </span></h2>
+                        <h5 class="center">Música y Arte</h5>
+
+                        <p class="light center">Cuna de músicos y escritores. Un lugar donde el arte es primordial y anualmente celebra su festival musical "Rock al Viento" para el disfrute de propios y visitantes. </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                    <div class="icon-block">
+                        <h2 class="center light-blue-text"><span class="material-icons green-text text-darken-3">
+            local_cafe
+          </span></h2>
+                        <h5 class="center">Tierra de Café</h5>
+
+                        <p class="light center">Disfruta del más suave café del mundo, con notas acidas y dulces. Apia es reconocido mundialmente por la calidad y suavidad de su café especial. </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+</div>
+
+{% endblock %}
