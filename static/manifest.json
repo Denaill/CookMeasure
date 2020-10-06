@@ -2,25 +2,21 @@
     "short_name": "CookMeasure",
     "name": "CookMeasure",
     "icons": [
-        {
-            "src": "https://cookmeasure.herokuapp.com/static/img/logo.png",
-            "type": "image/png",
-            "sizes": "48x48"
-        },
-        {
-            "src": "https://cookmeasure.herokuapp.com/static/img/logo.png",
-            "type": "image/png",
-            "sizes": "96x96"
-        },
-        {
-            "src": "https://cookmeasure.herokuapp.com/static/img/logo.png",
-            "type": "image/png",
-            "sizes": "192x192"
-        }
+      {
+        "src": "/static/img/logo.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "/static/img/logo.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/static/img/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
     ],
-    "start_url": "https://cookmeasure.herokuapp.com/",
-    "background_color": "",
-    "url": "https://cookmeasure.herokuapp.com/",
-    "lang": "",
-    "screenshots": []
-}
+    "start_url": "index.html?launcher=true"
+  }
