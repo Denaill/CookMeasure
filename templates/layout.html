@@ -76,17 +76,18 @@
     <script src="{{url_for('static',filename='js/materialize.js')}}"></script>
     <script src="{{url_for('static',filename='js/init.js')}}"></script>
     <script>
-        if (navigator.serviceWorker.controller) {
-            console.log("Active service worker found");
-            } else {
-                navigator.serviceWorker
-                .register("/static/js/service_worker.js", {
-                scope: "./"
-                })
-                .then(function (reg) {
-                console.log("Service worker  registered);
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/static/js/sw.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
                 });
+            });
             }
+
     </script>
         
 
