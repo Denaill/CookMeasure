@@ -17,7 +17,7 @@
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
     <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
-    <!--Manifest-->
+    <!--Manifest--> 
     <link rel="manifest" href="{{url_for('static',filename='manifets.json')}}">
 </head>
 
@@ -75,6 +75,20 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{{url_for('static',filename='js/materialize.js')}}"></script>
     <script src="{{url_for('static',filename='js/init.js')}}"></script>
+    <script>
+        if (navigator.serviceWorker.controller) {
+            console.log("Active service worker found");
+            } else {
+                navigator.serviceWorker
+                .register("/static/js/service_worker.js", {
+                scope: "./"
+                })
+                .then(function (reg) {
+                console.log("Service worker  registered);
+                });
+            }
+    </script>
+        
 
 </body>
 
