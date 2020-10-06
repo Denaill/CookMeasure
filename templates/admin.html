@@ -12,7 +12,7 @@
                     <form method="POST" action="{{ url_for('admin') }}" enctype=multipart/form-data>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="usuario" id="usuario" type="hidden" value="{{session['nickname']}}" class="validate" required>
+                                <input name="usuario" id="usuario" type="text" value="{{session['nickname']}}" class="validate" required>
                             </div>
                             <div class="input-field col s12">
                                 <input placeholder="Nombre de la receta" name="title" id="title" type="text" class="validate" required>

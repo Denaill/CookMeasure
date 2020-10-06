@@ -25,8 +25,7 @@
     <nav class="" style="background-color:#0f222d;" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="{{url_for('index')}}" class="brand-logo">
-        CookMeasure
-    </a>
+                CookMeasure
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
                 <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
@@ -79,6 +78,20 @@
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
         document.body.appendChild(el);
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {   
+   // we are checking here to see if the browser supports the  service worker api
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/pwabuilder-sw.js').then(function(registration) {
+                // Registration was successful
+                console.log('Service Worker registration was successful with scope: ', registration.scope);
+                }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+            }
     </script>
 
 </body>

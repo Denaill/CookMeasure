@@ -21,7 +21,7 @@ fs = gridfs.GridFS(mongo.db)
 
 @app.route('/pwabuilder-sw.js', methods=['GET'])
 def sw():
-    return app.send_static_file('/js/pwabuilder-sw.js')
+    return app.send_static_file('/pwabuilder-sw.js')
 
 @app.route('/',methods=['POST','GET'])
 def index():
