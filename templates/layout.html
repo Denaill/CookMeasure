@@ -75,7 +75,11 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{{url_for('static',filename='js/materialize.js')}}"></script>
     <script src="{{url_for('static',filename='js/init.js')}}"></script>
-        
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+        const el = document.createElement('pwa-update');
+        document.body.appendChild(el);
+    </script>
 
 </body>
 
