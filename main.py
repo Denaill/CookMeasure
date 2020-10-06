@@ -19,6 +19,10 @@ app.config['MONGO_URI'] = 'mongodb+srv://admin:utp123@cluster0-tjpda.mongodb.net
 mongo = PyMongo(app)
 fs = gridfs.GridFS(mongo.db)
 
+@app.route('/pwabuilder-sw.js', methods=['GET'])
+def sw():
+    return app.send_static_file('/js/pwabuilder-sw.js')
+
 @app.route('/',methods=['POST','GET'])
 def index():
     #if 'email' in session:
