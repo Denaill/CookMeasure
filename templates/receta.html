@@ -9,6 +9,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-title center" style="font-weight: bold;">
+                        {% if session['email'] == 'administrador@cookmeasure.com' %}
                         <a class="btn-floating pulse dropdown-trigger btn" href="#" data-target="dropmenu" style="margin-top: 2vh; background-color:darkred;"><i class="material-icons">menu</i></a>
                         <!--DropMenu structure-->
                         <ul id='dropmenu' class='dropdown-content'>
@@ -26,6 +27,7 @@
                                 <a href="{{ url_for('misrecetas') }}" class="modal-close waves-effect waves-red btn-flat">No</a>
                             </div>
                         </div>
+                        {% endif %}
                         {{receta['title']}}
                     </div>
                     {% if session['email'] == 'administrador@cookmeasure.com' %}
