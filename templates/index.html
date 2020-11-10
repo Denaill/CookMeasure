@@ -145,30 +145,50 @@
     </article>
 </section>
 
-<div class="container">
-    <div class="section">
-        <div class="container" style="position:relative; padding-bottom: 56.25%; height: 0;overflow: hidden;">
-            <iframe width="auto" height="auto" style="position: absolute; top:0; left: 0; width: 100%;
-            height: 70%; "src="https://www.youtube.com/embed/ifeUK1apI_4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="row">
-        <a href="{{ url_for('recetas') }}">
-            <div class="btn btn-large red darken-4  waves-effect col s6 m4 offset-s3 offset-m4 hoverable">
-                <div class="valign-wrapper">
-                    <span class="col s2 material-icons">
-            book
-          </span>
-                    <div class="col s10 tooltipped " style="height: 55px;" data-position="bottom" data-tooltip="Empieza a explorar las recetas">
-                        Ver recetas
-                    </div>
-    
+<section>
+    <article class="white section SiteConstruction">
+        <div class="container u-lg-flexCenter">
+            <div class="row">
+                <div class="col s12 l6 white-text">
+                    <h3>La actualidad de CookMeasure</h3>
+                    <p>Actualmente CookMeasure se encuentra en construcción pero esto no te impide de poder interactuar con ella. Puedes registrarte, subir tus recetas y observar las recetas que los demas integrantes de CookMeasure han subido.
+                    </p>
+                    <p> Para saber más sobre la actualidad de CookMeasure visita el siguiente link: <a>https://github.com/Denaill/CookMeasure</a></p>
+                    
+                </div>
+                <div class="col s12 l6">
+                    <img src="{{url_for('static',filename='img/responsive.png')}}" alt="Sitios Responsive" width="420" height="320">
                 </div>
             </div>
-        </a>
+        </div>
+    </article>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section">
+            <div class="container" style="position:relative; padding-bottom: 56.25%; height: 0;overflow: hidden;">
+                <iframe width="auto" height="auto" style="position: absolute; top:0; left: 0; width: 100%;
+                height: 70%; "src="https://www.youtube.com/embed/ifeUK1apI_4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <a href="{{ url_for('recetas') }}">
+                <div class="btn btn-large red darken-4  waves-effect col s6 m4 offset-s3 offset-m4 hoverable">
+                    <div class="valign-wrapper">
+                        <span class="col s2 material-icons">
+                book
+            </span>
+                        <div class="col s10 tooltipped " style="height: 55px;" data-position="bottom" data-tooltip="Empieza a explorar las recetas">
+                            Ver recetas
+                        </div>
+        
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <br><br>
     </div>
-
-    <br><br>
-</div>
-
+</section>
 {% endblock %}
