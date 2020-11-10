@@ -1,54 +1,150 @@
 {% extends "layout.html" %} {% block content %}
 
-<div class="container center-align" >
-    <br>
-    <div class="row">
-        <div class="col-sm s2">
-            <a class="" href="#one!"><img src="{{url_for('static',filename='img/logoCM.png')}}" style="height: 30vh; width: 45vh;"></a>
-        </div>
-        <div class="col-sm s6 offset-s6">
-            <div class="card-z s12 indexJumbotron z-depth-2 hoverable" >
-                <!--   Icon Section   -->
-                <div class="row text-white">
-                    <div class="col-sm s12 ">
-                        <h5 class="center" style="color:white;">
-                            <br> ¿Qué hacer en CookMeasure?
-                        </h5>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="container">
-                        <div class="row" style="columns: 3;">
-                            <div class="col-sm-auto s1 tooltipped" data-tooltip="Ver y crear recetas" style="margin-top: -5vh;">
-                                <div class="icon-block">
-                                    <h2><span class="material-icons red-text text-darken-3">book</span></h2>
-                                    <p class="light center"></p>
-                                </div>
-                            </div>
-                            <div class="col-sm-auto s1 tooltipped" data-tooltip="Calificar las recetas">
-                                <div class="icon-block">
-                                    <h2><span class="material-icons red-text text-darken-3">announcement</span></h2>
-                                    <p class="light center"></p>
-                                </div>
-                            </div>
-                            <div class="col-sm-auto s1 tooltipped" data-tooltip="Filtrar por ingredientes especificos">
-                                <div class="icon-block">
-                                    <h2><span class="material-icons red-text text-darken-3">assignment</span></h2>
-                                    <p class="light center"></p>
-                                </div>
-                            </div>
-
-                        </div>                            
+<section id="hola" class="scrollspy white-text valign-wrapper HeroImage">
+    <div class="row container u-lg-flexCenter">
+        <article class="col s12 xl5">
+            <h3>¿Ingredientes contados para cocinar?</h3>
+            <p class="flow-text">Llegaste al lugar indicado, un sitio web de recetas el cual te muestra que cocinar con lo que tienes!.</p>
+            <a href="#servicios">
+                <div class="btn btn-large red darken-4  waves-effect  hoverable">
+                    <div class="valign-wrapper" style="">
+                        <span class="col s2 material-icons">
+                    arrow_drop_down
+              </span>
+                        <div class="col s10 tooltipped " style="height: 55px;" data-position="bottom" data-tooltip="Empecemos">
+                            Empecemos
+                        </div>
+        
                     </div>
                 </div>
-
-                   
-                        </div>
-                    </div>
-        </div>
+            </a>
+        </article>
+        <article class="col s12 xl7">
+            <img class="responsive-img" src="{{url_for('static',filename='img/rwd.png')}}" alt="¿Necesitas un asombroso sitio web?">
+        </article>
     </div>
-</div>
-<br>
+</section>
+
+<section id="servicios" class="scrollspy section white Services">
+    <article class="container row u-lg-flexCenter">
+        <div class="col s12 m6 l3">
+            <article class="card large">
+                <div class="card-image">
+                    <img src="{{url_for('static',filename='img/1.png')}}" alt="Nuevo sitio web">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Recetas</span>
+                    <p>¿Quieres compartir recetas? en CookMeasure lo puedes hacer!</p>
+                </div>
+                <div class="card-action">
+                    <a href="#Modal1" class="valign-wrapper modal-trigger">Más detalles
+                        <i class="material-icons tiny">chevron_right</i>
+                    </a>
+                </div>
+                <div id="Modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>¿Tienes recetas y quieres compartirlas?</h4>
+                        <p>CookMeasure te da la oportunidad de compartir esas grandiosas habilidades culinarias con las que cuentas! Solo necesitas crearte una cuenta para poder empezar esta aventura.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="col s12 m6 l3">
+            <article class="card large">
+                <div class="card-image">
+                    <img src="{{url_for('static',filename='img/2.png')}}" alt="A medida">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">¿Pocos ingredientes?</span>
+                    <p>En CookMeasure usamos unicamente los ingredientes que tengas!.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#Modal2" class="valign-wrapper modal-trigger">Más detalles
+                        <i class="material-icons tiny">chevron_right</i>
+                    </a>
+                </div>
+            </article>
+            <div id="Modal2" class="modal">
+                <div class="modal-content">
+                    <h4>¿Pocos ingredientes?</h4>
+                    <p>En CookMeasure usamos unicamente los ingredientes que tengas. ¿A que nos referimos con esto? Si unicamente tienes como ingredientes Pan y Atún en CookMeasure te mostramos recetas que puedas realizar unicamente con esos dos ingredientes!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l3">
+            <article class="card large">
+                <div class="card-image">
+                    <img src="{{url_for('static',filename='img/3.png')}}" alt="Clientes">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">¿Te gustaria calificar las recetas?</span>
+                    <p>En CookMeasure puedes calificar y opinar las recetas!.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#Modal3" class="valign-wrapper modal-trigger">Más detalles
+                        <i class="material-icons tiny">chevron_right</i>
+                    </a>
+                </div>
+            </article>
+            <div id="Modal3" class="modal">
+                <div class="modal-content">
+                    <h4>¿Te gustaria calificar las recetas?</h4>
+                    <p>En CookMeasure puedes calificar y opinar las recetas, permitiendo así una comunicación entre nuestros inter-chefs! (chefs internautas)</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l3">
+            <article class="card large">
+                <div class="card-image">
+                    <img src="{{url_for('static',filename='img/4.png')}}" alt="Interesado">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">¿Te gustaria ser parte de CookMeasure?</span>
+                    <p>Que esperas, crea tu usuario!.</p>
+                </div>
+                <div class="card-action">
+                    {% if session['email'] %}
+                    <a href="{{ url_for('recetas') }}" class="valign-wrapper">Ya estas registrado, explora recetas!
+                        <i class="material-icons tiny">chevron_right</i>
+                    </a>
+                    {% else %}
+                    <a href="{{ url_for('logint') }}" class="valign-wrapper">Más detalles
+                        <i class="material-icons tiny">chevron_right</i>
+                    </a>
+                    {% endif %}
+                </div>
+            </article>
+        </div>
+    </article>
+</section>
+
+<section>
+    <article class=" section ResponsiveSites">
+        <div class="container u-lg-flexCenter">
+            <div class="row">
+                <div class="col s12 l6 white-text">
+                    <h3>CookMeasure se adapta a todos tus dispositivos</h3>
+                    <p>Puedes visitar CookMeasure desde cualquier dispositivo que tengas, esta se adaptara a la pantalla y mostrara toda la información necesaria de la manera más comoda posible.
+                    </p>
+                    
+                </div>
+                <div class="col s12 l6">
+                    <img src="{{url_for('static',filename='img/responsive.png')}}" alt="Sitios Responsive" width="420" height="320">
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
 <div class="container">
     <div class="section">
         <div class="container" style="position:relative; padding-bottom: 56.25%; height: 0;overflow: hidden;">
