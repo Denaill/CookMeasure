@@ -3,11 +3,11 @@
 <section id="hola" class="scrollspy white-text valign-wrapper HeroImage">
     <div class="row container u-lg-flexCenter">
         <article class="col s12 xl5">
-            <h3>¿Ingredientes contados para cocinar?</h3>
-            <p class="flow-text">Llegaste al lugar indicado, un sitio web de recetas el cual te muestra que cocinar con lo que tienes!.</p>
+            <h3>¿Pocos ingredientes?</h3>
+            <p class="flow-text">¡Llegaste al lugar indicado! un sitio web de recetas el cual te muestra que cocinar con lo que tienes.</p>
             <a href="#servicios">
                 <div class="btn btn-large red darken-4  waves-effect  hoverable">
-                    <div class="valign-wrapper" style="">
+                    <div class="valign-wrapper" >
                         <span class="col s2 material-icons">
                     arrow_drop_down
               </span>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">Recetas</span>
-                    <p>¿Quieres compartir recetas? en CookMeasure lo puedes hacer!</p>
+                    <p>¿Quieres compartir recetas? en CookMeasure lo puedes hacer.</p>
                 </div>
                 <div class="card-action">
                     <a href="#Modal1" class="valign-wrapper modal-trigger">Más detalles
@@ -44,10 +44,10 @@
                 <div id="Modal1" class="modal">
                     <div class="modal-content">
                         <h4>¿Tienes recetas y quieres compartirlas?</h4>
-                        <p>CookMeasure te da la oportunidad de compartir esas grandiosas habilidades culinarias con las que cuentas! Solo necesitas crearte una cuenta para poder empezar esta aventura.</p>
+                        <p>CookMeasure te da la oportunidad de compartir esas grandiosas habilidades culinarias con las que cuentas, solo necesitas crearte una cuenta para poder empezar esta aventura.</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                        <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">¡Entendido!</a>
                     </div>
                 </div>
             </article>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">¿Pocos ingredientes?</span>
-                    <p>En CookMeasure usamos unicamente los ingredientes que tengas!.</p>
+                    <p>En CookMeasure usamos unicamente los ingredientes que tengas.</p>
                 </div>
                 <div class="card-action">
                     <a href="#Modal2" class="valign-wrapper modal-trigger">Más detalles
@@ -73,7 +73,7 @@
                     <p>En CookMeasure usamos unicamente los ingredientes que tengas. ¿A que nos referimos con esto? Si unicamente tienes como ingredientes Pan y Atún en CookMeasure te mostramos recetas que puedas realizar unicamente con esos dos ingredientes!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">¡Entendido!</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">¿Te gustaria calificar las recetas?</span>
-                    <p>En CookMeasure puedes calificar y opinar las recetas!.</p>
+                    <p>En CookMeasure puedes calificar y opinar las recetas.</p>
                 </div>
                 <div class="card-action">
                     <a href="#Modal3" class="valign-wrapper modal-trigger">Más detalles
@@ -98,7 +98,7 @@
                     <p>En CookMeasure puedes calificar y opinar las recetas, permitiendo así una comunicación entre nuestros inter-chefs! (chefs internautas)</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">Entendido!</a>
+                    <a href="#servicios" class="modal-close waves-effect waves-red btn-flat">¡Entendido!</a>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="card-content">
                     <span class="card-title">¿Te gustaria ser parte de CookMeasure?</span>
-                    <p>Que esperas, crea tu usuario!.</p>
+                    <p>Que esperas, ¡crea tu usuario!.</p>
                 </div>
                 <div class="card-action">
                     {% if session['email'] %}
@@ -117,7 +117,7 @@
                         <i class="material-icons tiny">chevron_right</i>
                     </a>
                     {% else %}
-                    <a href="{{ url_for('logint') }}" class="valign-wrapper">Más detalles
+                    <a href="{{ url_for('logint') }}" class="valign-wrapper">Crear usuario
                         <i class="material-icons tiny">chevron_right</i>
                     </a>
                     {% endif %}
@@ -133,7 +133,7 @@
             <div class="row">
                 <div class="col s12 l6 white-text">
                     <h3>CookMeasure se adapta a todos tus dispositivos</h3>
-                    <p>Puedes visitar CookMeasure desde cualquier dispositivo que tengas, esta se adaptara a la pantalla y mostrara toda la información necesaria de la manera más comoda posible.
+                    <p>Puedes visitar CookMeasure desde cualquier dispositivo, esta se adaptara a la pantalla y mostrara toda la información necesaria de la manera más comoda posible.
                     </p>
                     
                 </div>
@@ -155,7 +155,7 @@
     <div class="row">
         <a href="{{ url_for('recetas') }}">
             <div class="btn btn-large red darken-4  waves-effect col s6 m4 offset-s3 offset-m4 hoverable">
-                <div class="valign-wrapper" style="">
+                <div class="valign-wrapper">
                     <span class="col s2 material-icons">
             book
           </span>
