@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="{{url_for('static',filename='css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="{{url_for('static',filename='css/style.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{url_for('static',filename='css/materialize-social.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{url_for('static',filename='css/font-awesome.css')}}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{url_for('static',filename='css/materialize-social.less')}}" type="text/css" rel="stylesheet" media="screen,projection" />
 
     <!--QR READER-->
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
@@ -27,6 +30,15 @@
             <a id="logo-container" href="{{url_for('index')}}" class="brand-logo">
                 CookMeasure
             <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a href="#">
+                            <form method="POST" action="{{ url_for('busqueda') }}" enctype=multipart/form-data>
+                                <input name="busqueda" id="busqueda" type="text" placeholder="Busca una receta" class="validate" style="color:white;">
+                            </form>
+                        </a>
+                    </li>
+                
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
                 <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
                 {% if session['email'] %}
@@ -35,20 +47,19 @@
                 <!-- Dropdown Trigger -->
                 <a class="btn-floating pulse dropdown-trigger btn" href="#" data-target="dropmenu1" style=" background-color:darkred;"><i class="material-icons">supervisor_account</i></a>
                 <!-- Dropdown Structure -->
-                <ul id='dropmenu1' class='dropdown-content'>
+                <ul id='dropmenu1' class='dropdown-content' style="width: 500px;">
                     {% if session['email'] %}
-                    <li><a href="#!" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">assignment_ind</i>Proxima..</a></li>
                     <li><a href="{{ url_for('logout') }}" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">cancel</i>Cerrar sesión</a></li>
                     {% else %}
                     <li><a href="{{ url_for('logint') }}" class="red-text text-darken-3"><i class="material-icons red-text text-darken-3">accessibility</i>Iniciar sesión</a></li>
                     {% endif %}
                 </ul>
             </ul>
-
+            
             <ul id="nav-mobile" class="sidenav">
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                {% if session['email'] == 'administrador@cookmeasure.com' %}
-                <li><a href="{{ url_for('admin') }}">Administrar</a></li>
+                {% if session['email'] == 'admin@cookmeasure.com' %}
+                <li><a href="{{ url_for('admin') }}">Agregar recetas</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
                 {% if session['email'] %}
@@ -57,6 +68,13 @@
                 {% else %}
                 <li><a href="{{ url_for('logint') }}">Iniciar Sesión</a></li>
                 {% endif %}
+                <li>
+                    <form method="POST" action="#" enctype=multipart/form-data>
+                        <a href="#">
+                            <input name="busqueda" id="busqueda" type="text" placeholder="Busca una receta" class="validate" style="color:black;">
+                        </a>
+                    </form>
+                </li>
             </ul>
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
@@ -78,6 +96,7 @@
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
         const el = document.createElement('pwa-update');
         document.body.appendChild(el);
+        
     </script>
     <script>
         if ('serviceWorker' in navigator) {   
@@ -92,8 +111,20 @@
                 });
             });
             }
+        $('.scrollspy').scrollSpy();
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, {
+                direction: 'right'
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.scrollspy');
+            var instances = M.ScrollSpy.init(elems, options);
+        });
+        
     </script>
-
+    
 </body>
 
 </html>

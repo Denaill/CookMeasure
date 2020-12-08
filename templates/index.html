@@ -14,7 +14,6 @@
                         <div class="col s10 tooltipped " style="height: 55px;" data-position="bottom" data-tooltip="Empecemos">
                             Empecemos
                         </div>
-        
                     </div>
                 </div>
             </a>
@@ -25,7 +24,7 @@
     </div>
 </section>
 
-<section id="servicios" class="scrollspy section white Services">
+<section id="servicios" class="section scrollspy white Services">
     <article class="container row u-lg-flexCenter">
         <div class="col s12 m6 l3">
             <article class="card large">
@@ -157,7 +156,25 @@
                     <p>Actualmente CookMeasure se encuentra en construcción pero esto no te impide de poder interactuar con ella. Puedes registrarte, subir tus recetas y observar las recetas que los demas integrantes de CookMeasure han subido.
                     </p>
                     <p> Para saber más sobre la actualidad de CookMeasure visita el siguiente link: <a href="https://github.com/Denaill/CookMeasure">https://github.com/Denaill/CookMeasure</a></p>
-                    
+                    <p> Para saber sobre los creadores de CookMeasure da click: <a href="{{ url_for('creadores') }}">AQUÍ</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section>
+    <article class=" section ResponsiveSites">
+        <div class="container u-lg-flexCenter">
+            <div class="row">
+                <div class="col s12 l6 white-text">
+                    <h3>No olvides seguirnos en Instagram</h3>
+                    <p>Encuentranos como <a href="https://www.instagram.com/cookmeasure/">CookMeasure</a></p>
+                </div>
+                <div class="col s12 l6">
+                    <!-- SnapWidget -->
+                    <!-- SnapWidget -->
+                    <iframe src="https://www.instagram.com/p/CHQc-4tDXzP/embed" href="https://www.instagram.com/cookmeasure/" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:300px; height:300px"></iframe>
                 </div>
             </div>
         </div>
@@ -192,4 +209,10 @@
         </div>
     </a>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.scrollspy');
+    var instances = M.ScrollSpy.init(elems, options);
+  });
+</script>
 {% endblock %}

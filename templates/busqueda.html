@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<br>
+<div class="container rounded">
+    <div class="row">
+        <div class="container-fluid text-center rounded" style=" color:red; height: 30px;">
+            <h6>Resultado para la busqueda de: {{busqueda}}</h6>
+        </div>
+        {% for receta in recetas %}
+            {% if busqueda.lower() in receta['title'].lower() %}
+                <div class="col s12 m6 ">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-title center" style="font-weight: bold;">
+                                
+                                {{receta['title']}}
+                            </div>
+                            <br>
+                            <div class="row">
+                                <img src="/images/{{receta['images']['0']}}" class="col s10 m8 offset-s1 offset-m2 materialboxed"  width="320" height="180">
+                            
+                            <br>
+                            <p class="col s12 center">
+                                <br>
+                                {{receta['description']}}
+                            </p>
+                            {% if session['email'] == 'admin@cookmeasure.com' %}
+                            <a>
+                                <div class="fixed-action-btn col s10 my-4 waves-effect">
+                                    <a class="btn-floating btn-large red">
+                                    <i class="large material-icons">add_circle</i>
+                                    </a>
+                                    <ul>
+                                    <li><a class="btn-floating red darken-1 tooltipped modal-trigger" data-tooltip="Eliminar receta" href="/delete/{{receta['_id']}}"><i class="material-icons">delete</i></a></li>
+                                    <li><a class="btn-floating blue tooltipped" data-tooltip="Modificar receta" href="/modificar/{{receta['_id']}}"><i class="material-icons">publish</i></a></li>
+                                    <li><a class="btn-floating green tooltipped" data-tooltip="Ver receta" href="/recetas/{{receta['_id']}}"><i class="material-icons">expand_more</i></a></li>
+                                    </ul>
+                                    <!-- Modal Structure -->
+                                    <div id="ModalEliminar" class="modal">
+                                        <div class="modal-content">
+                                            <h4>¿Desea eliminar esta receta?</h4>
+                                            <p>La receta cuyo titulo es "{{receta['title']}}" sera eliminada</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="/delete/{{receta['_id']}}" class="modal-close waves-effect waves-red btn-flat">Si</a>
+                                            <a href="#" class="modal-close waves-effect waves-red btn-flat">No</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if session['email'] == 'administrador@cookmeasure.com' %}
+    <a href="{{ url_for('admin') }}" class="col s10 offset-s1 m6 offset-m3 center btn red darken-4 hoverable waves-effect" style="margin-top: 15px;">
+        Añadir una receta nueva
+    </a>
+    {% endif %}
+</div>
+{% endblock %}

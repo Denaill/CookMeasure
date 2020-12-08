@@ -1,6 +1,6 @@
 {% extends 'layout.html' %} {% block content %}
 <br>
-<div class="container">
+<div class="container border">
     <div class="row">
         <div class="col s12 l5 ">
             <div class="card">
@@ -13,7 +13,7 @@
                         <img src="/images/{{receta['images']['0']}}" class="col s10 m8 offset-s1 offset-m2 materialboxed">
 
                         <br>
-                        <p class="col s12 center">
+                        <p class="col s12 center text-center">
                             <br>
                             <h7 class="materialize-red-text">Descripción de la receta </h7>
                             <br> {{receta['description']}}
@@ -26,11 +26,27 @@
                             <br>
                             <br>
                             <h7 class="materialize-red-text">Ingredientes </h7>
-                            <br> Proximamente ...
+                            <br> 
+                            <div class="container">
+                                <table style="text-align:center; margin: 0 auto;" cellspacing="0">
+                                    <tr>
+                                        {% set contador = [0] %}
+                                        {% for ingre in receta['ingredientes'] %}
+                                            {% if (contador[0] % 2 | int) == 0 %}
+                                                <tr></tr>
+                                            {% endif %}
+                                            {% if contador.append(contador.pop() + 1) %}{% endif %}
+                                            <th>{{ingre}}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </table>
+                            </div>
                             <br>
                             <br>
-                            <h7 class="materialize-red-text">Autor de la receta </h7>
-                            <br> {{receta['usuario']}}
+                            <div class="container center">
+                                <h7 class="materialize-red-text">Autor de la receta </h7>
+                                <br> {{receta['usuario']}}
+                            </div>
                         </p>
 
                     </div>
@@ -60,6 +76,63 @@
             </div>
         </div>
     </div>
+    <ul class="container-fluid rounded" style="background-color: white;">
+        <li>
+            <div class="container" style="background-color: white;">
+                <table >
+                    <tr>
+                        <th><a>Nickname</a></th>
+                        <th><a>Comentario</a></th>
+                    </tr>
+                </table>
+            </div>
+                <div class="container">
+                    <table >
+                        {% for comment in comentarios %}
+                        <tr>
+                            {% if (comment['receta'] | string()) == receta['_id'] | string() %}
+                            <th>{{comment['usuario']}}</th>
+                            <th>{{comment['comentario']}}</th>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <a>¿Quieres comentar?</a>
+                    <form method="POST" action="{{ url_for('comentar') }}" enctype=multipart/form-data id="myForm">
+                        <div class="input-field col s12">
+                            <input name="usuario" id="usuario" type="hidden" value="{{session['nickname']}}" class="validate" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <input name="receta" id="receta" type="hidden" value="{{receta['_id']}}" class="validate" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Comenta esta receta" name="comentario" id="comentario" type="text" class="validate" required>
+                            <label for="comentario"></label>
+                        </div>
+                        <div class="input-field col s5 offset-s4">
+                            <input type="submit" class="btn red darken-4 center" value="Comentar">
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                </div> 
+            </div>
+        </li>
+      </ul>
 </div>
-
+<script>
+    function sendForm() {
+        var valido = false; //DEBERIAS REALIZAR LAS VALIDACIONES
+        if (valido) {
+            document.getElementById("myForm").submit();
+        } else {
+            return false;
+        }
+        }
+</script>
 {% endblock %}

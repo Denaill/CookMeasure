@@ -1,0 +1,148 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<br>
+<div class="container rounded">
+    <div class="row">
+        <div class="tooltipped hoverable center" data-position="bottom" data-tooltip="El filtrado que CookMeasure maneja es de dos tipos: 
+                                                                            1. Filtrado Especial en el cual te muestra las recetas que contienen estrictamente los ingredientes seleccionados. 
+                                                                            2. Filtrado General, te muestra las recetas que contienen los ingredientes seleccionados.">
+            <h4 style="color: red;">Filtrado</h4>
+        </div>
+        <table>
+            <tr>
+                <form method="POST" action="{{ url_for('filtro') }}" enctype=multipart/form-data>
+                    <th>
+                        <ul class="collapsible"class="tooltiped" data-tooltip="El filtrado" style="background-color: white; ">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">keyboard_arrow_down</i>General</div>
+                                <div class="collapsible-body">
+                                    <table style="text-align:center; margin: 0 auto;" cellspacing="0">
+                                        <tr>
+                                            {% for espe in especifico %}
+                                                {% set contador = [0] %}
+                                                {% for ingre in espe['ingredientes'] %}
+                                                    {% if (contador[0] % 2 | int) == 0 %}
+                                                        <tr></tr>
+                                                    {% endif %}
+                                                    {% if contador.append(contador.pop() + 1) %}{% endif %}
+                                                    <th>
+                                                        <p>
+                                                            <label>
+                                                                {% if ingre in ingredientes_especifico %}
+                                                                    <input type="checkbox" class="filled-in" id="ingredientes_check" name="ingredientes_check" value="{{ingre}}" checked="checked"/>
+                                                                {% else %}
+                                                                    <input type="checkbox" class="filled-in" id="ingredientes_check" name="ingredientes_check" value="{{ingre}}" />    
+                                                                {% endif %}
+                                                               <span>{{ingre}}</span>
+                                                            </label>
+                                                        </p>
+                                                    </th>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tr>
+                                    </table>
+                                    <div class="input-field col s5 offset-s4">
+                                        <input type="submit" class="btn red darken-4 center" value="Filtrar">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </th>
+                </form>
+                <form method="POST" action="{{ url_for('admin') }}" enctype=multipart/form-data>
+                    <th>
+                        <ul class="collapsible" style="background-color: white; ">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">keyboard_arrow_down</i>Especial</div>
+                                <div class="collapsible-body">
+                                    <table style="text-align:center; margin: 0 auto;" cellspacing="0">
+                                        <tr>
+                                            {% for ing in ingres %}
+                                                {% set contador = [0] %}
+                                                {% for ingre in ing['ingredientes'] %}
+                                                    {% if (contador[0] % 2 | int) == 0 %}
+                                                        <tr></tr>
+                                                    {% endif %}
+                                                    {% if contador.append(contador.pop() + 1) %}{% endif %}
+                                                    <th>
+                                                        <p>
+                                                            <label>
+                                                                <input type="checkbox" class="filled-in" id="ingredientes_check" name="ingredientes_check" value="{{ingre}}" />
+                                                                <span>{{ingre}}</span>
+                                                            </label>
+                                                        </p>
+                                                    </th>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tr>
+                                    </table>
+                                    <div class="input-field col s5 offset-s4">
+                                        <input type="submit" class="btn red darken-4" value="Filtrar">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </th>
+                </form>
+            </tr>
+        </table>
+        {% for receta in recetas %}
+            {% for ingred in receta['ingredientes'] %}
+                {% if ingred in ingredientes_especifico %}
+                    <div class="col s12 m6 ">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-title center" style="font-weight: bold;">
+                                    
+                                    {{receta['title']}}
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <img src="/images/{{receta['images']['0']}}" class="col s10 m8 offset-s1 offset-m2 materialboxed"  width="320" height="180">
+                                
+                                <br>
+                                <p class="col s12 center">
+                                    <br>
+                                    {{receta['description']}}
+                                </p>
+                                {% if session['email'] == 'admin@cookmeasure.com' %}
+                                <a>
+                                    <div class="fixed-action-btn col s10 my-4 waves-effect">
+                                        <a class="btn-floating btn-large red">
+                                        <i class="large material-icons">add_circle</i>
+                                        </a>
+                                        <ul>
+                                        <li><a class="btn-floating red darken-1 tooltipped modal-trigger" data-tooltip="Eliminar receta" href="/delete/{{receta['_id']}}"><i class="material-icons">delete</i></a></li>
+                                        <li><a class="btn-floating blue tooltipped" data-tooltip="Modificar receta" href="/modificar/{{receta['_id']}}"><i class="material-icons">publish</i></a></li>
+                                        <li><a class="btn-floating green tooltipped" data-tooltip="Ver receta" href="/recetas/{{receta['_id']}}"><i class="material-icons">expand_more</i></a></li>
+                                        </ul>
+                                        <!-- Modal Structure -->
+                                        <div id="ModalEliminar" class="modal">
+                                            <div class="modal-content">
+                                                <h4>¿Desea eliminar esta receta?</h4>
+                                                <p>La receta cuyo titulo es "{{receta['title']}}" sera eliminada</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="/delete/{{receta['_id']}}" class="modal-close waves-effect waves-red btn-flat">Si</a>
+                                                <a href="#" class="modal-close waves-effect waves-red btn-flat">No</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    {% if session['email'] == 'administrador@cookmeasure.com' %}
+    <a href="{{ url_for('admin') }}" class="col s10 offset-s1 m6 offset-m3 center btn red darken-4 hoverable waves-effect" style="margin-top: 15px;">
+        Añadir una receta nueva
+    </a>
+    {% endif %}
+</div>
+{% endblock %}

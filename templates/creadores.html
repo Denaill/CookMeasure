@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block content %}
+<br>
+<br>
+<br>
+<div class="container center">
+    <h4 style="color:red;">Creadores de CookMeasure</h4>
+    <table>
+        <tr>
+            <th>
+                <div class="col s6">
+                    <div class="card horizontal">
+                      <div class="card-image">
+                        <img src="{{url_for('static',filename='img/daniel.jpg')}}" style="height: 334px;">
+                      </div>
+                      <div class="card-stacked">
+                        <div class="card-content">
+                          <p>Mi nombre es Daniel Patiño Rojas, actualmente estudiante de Ingenieria en Sistemas y Computación en la Universidad Tecnologica de Pereira.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <div class="col s6 ">
+                    <div class="card horizontal">
+                      <div class="card-image">
+                        <img src="{{url_for('static',filename='img/andres.jpeg')}}" style="height: 332px; width: 490px;">
+                      </div>
+                      <div class="card-stacked">
+                        <div class="card-content">
+                          <p>Me llamo Andres Felipe Muñoz torres, y agradezco a la UTP por permitirme estudiar allí y pronto convertirme en un excelente profesional.</p>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">This is a link</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+            </th>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

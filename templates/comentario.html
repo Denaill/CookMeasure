@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block content %}
+<ul class="container-fluid" style="background-color: white;">
+    <li>
+        <div class="container" style="background-color: white;">
+            <table >
+                <tr>
+                    <th><a>Receta</a></th>
+                    <th><a>Nickname</a></th>
+                    <th><a>Comentario</a></th>
+                </tr>
+            </table>
+        </div>
+            {% for comment in comentarios %}
+            
+            <div class="container">
+                <table >
+                    <tr>
+                        <th>{{comment['receta']}}</th>
+                        <th>{{comment['usuario']}}</th>
+                        <th>{{comment['comentario']}}</th>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+        </li>
+    </ul>
+{% endblock %}

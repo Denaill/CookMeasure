@@ -12,7 +12,7 @@
                     <form method="POST" action="{{ url_for('admin') }}" enctype=multipart/form-data>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="usuario" id="usuario" type="text" value="{{session['nickname']}}" class="validate" required>
+                                <input name="usuario" id="usuario" type="hidden" value="{{session['nickname']}}" class="validate" required>
                             </div>
                             <div class="input-field col s12">
                                 <input placeholder="Nombre de la receta" name="title" id="title" type="text" class="validate" required>
@@ -26,9 +26,9 @@
                                 <input placeholder="Descripción" name="description" id="description" type="text" class="validate" required>
                                 <label for="description">Descripción de la receta</label>
                             </div>
-                            <div class="col s12">
-                                <label for="ingredientes">Añade los ingredientes</label>
-                                <div class="chips chips-placeholder col s12" placeholder="Ingredientes" name="ingredientes" id="ingredientes" class="validate" required></div>
+                            <div class="input-field col s12">
+                                <input placeholder="Ingredientes1, Ingrediente2, Ingrediente3, etc" name="ingredientes" id="ingredientes" type="text" class="validate" required>
+                                <label for="description">Añade los ingredientes separandolos por una coma (, )</label>
                             </div>
                             <div class="input-field col s12">
                                 <textarea placeholder="Preparacion" name="preparacion" id="preparacion" type="text" class="materialize-textarea validate" required></textarea>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="input-field col s5 offset-s4">
-                                <input type="submit" class="btn red darken-4 center" value="Agregar">
+                                <input type="submit"  class="btn red darken-4 center" value="Agregar">
                             </div>
                         </div>
                     </form>
@@ -75,4 +75,23 @@
         
     </div>
 </div>
+<script>
+    function Ingrediente(ingrediente) {
+        this.ingrediente = ingrediente;
+    }
+    function obtenerIngredientes() { // Obtengo los ingredientes del input
+        var chipInstance = M.Chips.getInstance($(".chips"));
+        console.log(chipInstance.chipsData);
+        console.log(chipInstance.selectChip(2));
+        return chipInstance	;
+    }
+    function crearIngredientes() {
+        var ing = new Ingrediente(obtenerIngredientes());
+        document.write(ing.ingrediente);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.chips');
+        var instances = M.Chips.init(elems, options);
+    });
+</script>
 {% endblock %}

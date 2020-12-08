@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block content %}
+<form method="POST" action="{{ url_for('comentar') }}" enctype=multipart/form-data id="myForm">
+    <div class="input-field col s12">
+        <input name="usuario" id="usuario" type="text" value="{{session['nickname']}}" class="validate" required>
+    </div>
+    <div class="input-field col s12">
+        <input name="receta" id="receta" type="text" value="Ingrese el ID" class="validate" required>
+    </div>
+    <div class="input-field col s12">
+        <input placeholder="Comenta esta receta" name="comentario" id="comentario" type="text" class="validate" required>
+        <label for="comentario"></label>
+    </div>
+    <div class="input-field col s5 offset-s4">
+        <input  type="submit" class="btn red darken-4 center" value="Comentar">
+    </div>
+</form>
+{% endblock %}
