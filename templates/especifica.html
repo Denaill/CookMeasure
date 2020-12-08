@@ -104,7 +104,7 @@
                         <br>
                         {{receta['description']}}
                     </p>
-                    {% if session['email'] == 'admin@cookmeasure.com' %}
+                    {% if session['email'] == 'cook@cookmeasure.com' %}
                     <a>
                         <div class="fixed-action-btn col s10 my-4 waves-effect">
                             <a class="btn-floating btn-large red">
@@ -135,7 +135,7 @@
         </div>
         {% endfor %}
     </div>
-    {% if session['email'] == 'administrador@cookmeasure.com' %}
+    {% if session['email'] == 'cook@cookmeasure.com' %}
     <a href="{{ url_for('admin') }}" class="col s10 offset-s1 m6 offset-m3 center btn red darken-4 hoverable waves-effect" style="margin-top: 15px;">
         Añadir una receta nueva
     </a>

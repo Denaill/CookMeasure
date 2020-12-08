@@ -58,7 +58,7 @@
             
             <ul id="nav-mobile" class="sidenav">
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                {% if session['email'] == 'admin@cookmeasure.com' %}
+                {% if session['email'] == 'cook@cookmeasure.com' %}
                 <li><a href="{{ url_for('admin') }}">Agregar recetas</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('recetas') }}">Recetas</a></li>
