@@ -69,7 +69,7 @@
                 <li><a href="{{ url_for('logint') }}">Iniciar Sesión</a></li>
                 {% endif %}
                 <li>
-                    <form method="POST" action="#" enctype=multipart/form-data>
+                    <form method="POST" action="{{ url_for('busqueda') }}" enctype=multipart/form-data>
                         <a href="#">
                             <input name="busqueda" id="busqueda" type="text" placeholder="Busca una receta" class="validate" style="color:black;">
                         </a>
