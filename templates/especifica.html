@@ -100,19 +100,23 @@
                         <img src="/images/{{receta['images']['0']}}" class="col s10 m8 offset-s1 offset-m2 materialboxed"  width="320" height="180">
                     
                     <br>
-                    <p class="col s12 center">
-                        <br>
-                        {{receta['description']}}
-                    </p>
-                    {% if session['email'] == 'cook@cookmeasure.com' %}
+                    <div class="container" style="width: 300px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                        <p class="col s12 center">
+                            <br>
+                            {{receta['description']}}
+                        </p>
+                        </div>
+                    
                     <a>
                         <div class="fixed-action-btn col s10 my-4 waves-effect">
                             <a class="btn-floating btn-large red">
                             <i class="large material-icons">add_circle</i>
                             </a>
                             <ul>
+                                {% if session['email'] == 'cook@cookmeasure.com' %}
                             <li><a class="btn-floating red darken-1 tooltipped modal-trigger" data-tooltip="Eliminar receta" href="/delete/{{receta['_id']}}"><i class="material-icons">delete</i></a></li>
                             <li><a class="btn-floating blue tooltipped" data-tooltip="Modificar receta" href="/modificar/{{receta['_id']}}"><i class="material-icons">publish</i></a></li>
+                            {% endif %}
                             <li><a class="btn-floating green tooltipped" data-tooltip="Ver receta" href="/recetas/{{receta['_id']}}"><i class="material-icons">expand_more</i></a></li>
                             </ul>
                             <!-- Modal Structure -->
@@ -128,7 +132,7 @@
                             </div>
                         </div>
                     </a>
-                    {% endif %}
+                    
                     </div>
                 </div>
             </div>
